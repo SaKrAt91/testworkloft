@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-ui": "^2.13.2",
+    "lodash": "^4.17.15",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
+    "vue-lodash": "^2.1.2",
+    "vue-moment": "^4.1.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },
@@ -27,6 +31,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "postcss-loader": "^3.0.0",
+    "vue-cli-plugin-postcss-precss": "^1.0.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -41,11 +47,54 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ]
+    }
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "postcss": {
+    "plugins": {
+      "postcss-assets": {
+        "cachebuster": false,
+        "loadPaths": [
+          "public/"
+        ]
+      },
+      "postcss-import": {},
+      "postcss-extend-rule": {},
+      "postcss-advanced-variables": {},
+      "postcss-plugin-bem-atrule": {
+        "defaultNamespace": "el",
+        "style": "suit",
+        "separators": {
+          "descendent": "__",
+          "modifier": "--"
+        },
+        "shortcuts": {
+          "utility": "util",
+          "component": "b",
+          "modifier": "m",
+          "descendent": "e"
+        }
+      },
+      "postcss-preset-env": {
+        "stage": 2
+      },
+      "postcss-atroot": {},
+      "postcss-property-lookup": {},
+      "postcss-nested": {},
+      "postcss-nested-ancestors": {},
+      "postcss-calc": {},
+      "postcss-sass-color-functions": {},
+      "lost": false,
+      "postcss-utils": {}
+    }
+  }
 }
